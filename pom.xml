@@ -9,6 +9,7 @@
     <artifactId>my-project</artifactId>
     <version>1.0.0</version>
     <build>
+        <testSourceDirectory>src/test/java/fr/univavignon/pokedex/api</testSourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -19,12 +20,6 @@
                 </configuration>
             </plugin>
         </plugins>
-        <testSourceDirectory>src/test/java</testSourceDirectory>
-        <testResources>
-        <testResource>
-            <directory>src/test/java</directory>
-        </testResource>
-        </testResources>
     </build>
     <packaging>jar</packaging>
     <properties>
