@@ -1,35 +1,23 @@
-version: '2.1'
+version: 2.1
 orbs:
-  codecov: codecov/codecov@3.2.3
-
+  codecov: codecov/codecov@3.2.4
 jobs:
   build-and-test:
     docker:
-      - image: circleci/openjdk:8-jdk
+      - image: cimg/openjdk:11.0
     steps:
       - checkout
-      - run:
-          name: Install dependencies
-          command: mvn dependency:go-offline
       - run:
           name: Build
           command: mvn -B -DskipTests clean package
       - run:
-          name: Test and Upload coverage to Codecov
-          command: |
-            mvn test
-            bash <(curl -s https://codecov.io/bash) -t a412e51d-fc41-40f8-ab42-c264c0ec644e
+          name: Test
+          command: mvn test
       - codecov/upload
-    machine:
-      java:
-        version: 'oraclejdk8'
-# Ajouter d'autres jobs si nécessaire
 workflows:
-  version: 2
-  build-and-test:
+  sample:
     jobs:
       - build-and-test:
           filters:
             branches:
-              only:
-                - master
+              only: master
