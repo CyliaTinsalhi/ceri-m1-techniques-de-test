@@ -15,7 +15,7 @@ import static org.mockito.ArgumentMatchers.anyString;
 
 public class IPokemonTrainerFactoryTest {
 
-
+//hjghgh
     IPokemonTrainerFactory pokemonTrainerFactory = mock(IPokemonTrainerFactory.class);
     IPokedexFactory pokedexFactory = mock(IPokedexFactory.class);
     IPokedex pokedex = mock(IPokedex.class);
